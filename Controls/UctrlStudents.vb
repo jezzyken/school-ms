@@ -1,7 +1,6 @@
-﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
-Public Class UctrlUsers
+Public Class UctrlStudents
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         OpenForm()
     End Sub
@@ -9,11 +8,11 @@ Public Class UctrlUsers
     Private Sub InitializeListView()
         LsvItems.Columns.Clear()
         LsvItems.Columns.Add("ID", 50)
-        LsvItems.Columns.Add("Username", 100)
-        LsvItems.Columns.Add("Role", 100)
-        LsvItems.Columns.Add("First Name", 100)
-        LsvItems.Columns.Add("Middle Name", 100)
-        LsvItems.Columns.Add("Last Name", 100)
+        LsvItems.Columns.Add("Username", 200)
+        LsvItems.Columns.Add("Role", 200)
+        LsvItems.Columns.Add("First Name", 200)
+        LsvItems.Columns.Add("Middle Name", 200)
+        LsvItems.Columns.Add("Last Name", 200)
         LsvItems.FullRowSelect = True
         LsvItems.GridLines = True
         LsvItems.View = View.Details
@@ -93,7 +92,7 @@ Public Class UctrlUsers
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         If LsvItems.SelectedItems.Count > 0 Then
-            Dim selectedId As Integer = Convert.ToInt32(LsvItems.SelectedItems(0).Text)
+            Dim selectedId = Convert.ToInt32(LsvItems.SelectedItems(0).Text)
             If DeleteUser(selectedId) Then
                 LoadUsers()
                 MessageBox.Show("User deleted successfully.")
@@ -103,5 +102,9 @@ Public Class UctrlUsers
         Else
             MessageBox.Show("Please select a user to delete.")
         End If
+    End Sub
+
+    Private Sub btnAdd_Click_1(sender As Object, e As EventArgs)
+
     End Sub
 End Class

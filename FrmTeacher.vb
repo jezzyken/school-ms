@@ -11,12 +11,15 @@ Public Class FrmTeacher
     Private _mname As String
     Private _lname As String
     Private _departmentId As Integer
+    Private _isUpdate As Boolean = False
 
     Public Sub New()
         InitializeComponent()
         cboDepartments.DataSource = GetDepartmentList()
         cboDepartments.DisplayMember = "department"
         cboDepartments.ValueMember = "id"
+        btnSave.Text = "Add"
+        _isUpdate = False
     End Sub
 
     Public Sub New(userId As Integer, fname As String, mname As String, lname As String, departmentId As Integer)
@@ -38,6 +41,9 @@ Public Class FrmTeacher
         cboDepartments.ValueMember = "id"
         cboDepartments.SelectedValue = _departmentId
 
+        btnSave.Text = "Update"
+        _isUpdate = True
+
     End Sub
 
 
@@ -56,19 +62,18 @@ Public Class FrmTeacher
     End Function
 
 
-    Public Function AddUserAndTeacher(username As String, password As String, role As String, fname As String, mname As String, lname As String, departmentId As Integer) As Boolean
+    Public Function AddUserAndTeacher(username As String, password As String, fname As String, mname As String, lname As String, departmentId As Integer) As Boolean
         Using conn As MySqlConnection = GetConnection()
             conn.Open()
 
             Dim transaction As MySqlTransaction = conn.BeginTransaction()
             Try
                 ' Insert into tbl_users
-                Dim userSql As String = "INSERT INTO tbl_users (username, password, role, fname, mname, lname) VALUES (@username, @password, @role, @fname, @mname, @lname)"
+                Dim userSql As String = "INSERT INTO tbl_users (username, password, fname, mname, lname) VALUES (@username, @password, @fname, @mname, @lname)"
                 Using userCmd As New MySqlCommand(userSql, conn)
                     userCmd.Transaction = transaction
                     userCmd.Parameters.AddWithValue("@username", username)
                     userCmd.Parameters.AddWithValue("@password", password)  ' Ensure you hash the password in real scenarios
-                    userCmd.Parameters.AddWithValue("@role", role)
                     userCmd.Parameters.AddWithValue("@fname", fname)
                     userCmd.Parameters.AddWithValue("@mname", mname)
                     userCmd.Parameters.AddWithValue("@lname", lname)
@@ -101,25 +106,26 @@ Public Class FrmTeacher
 
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ' Example of how to call this function:
-        If AddUserAndTeacher(txtUsername.Text, txtPassword.Text, cboRole.Text, txtFname.Text, txtMname.Text, txtLname.Text, Convert.ToInt32(cboDepartments.SelectedValue)) Then
-            MessageBox.Show("Teacher added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            RaiseEvent OperationSuccessful()
+
+        If _isUpdate Then
+            If UpdateTeacher() Then
+                MessageBox.Show("Teacher updated successfully", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Close()  ' Optionally close the form or clear fields
+                RaiseEvent OperationSuccessful()
+            Else
+                MessageBox.Show("Failed to update teacher", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Else
-            MessageBox.Show("Failed to add teacher", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If AddUserAndTeacher(txtFname.Text, txtPassword.Text, txtFname.Text, txtMname.Text, txtLname.Text, Convert.ToInt32(cboDepartments.SelectedValue)) Then
+                MessageBox.Show("Teacher added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                RaiseEvent OperationSuccessful()
+            Else
+                MessageBox.Show("Failed to add teacher", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
 
     End Sub
 
-    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        If UpdateTeacher() Then
-            MessageBox.Show("Teacher updated successfully", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.Close()  ' Optionally close the form or clear fields
-            RaiseEvent OperationSuccessful()
-        Else
-            MessageBox.Show("Failed to update teacher", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-    End Sub
 
     Private Function UpdateTeacher() As Boolean
         Using conn As MySqlConnection = GetConnection()

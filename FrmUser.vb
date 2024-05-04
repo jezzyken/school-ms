@@ -11,9 +11,13 @@ Public Class FrmUser
     Public Property FirstName As String
     Public Property MiddleName As String
     Public Property LastName As String
+    Private _isUpdate As Boolean = False
 
     Public Sub New()
         InitializeComponent()
+        btnSave.Text = "Add"
+        _isUpdate = False
+
     End Sub
 
     Public Sub New(id As Integer, role As String, fname As String, mname As String, lname As String)
@@ -29,17 +33,31 @@ Public Class FrmUser
         txtFname.Text = FirstName
         txtMname.Text = MiddleName
         txtLname.Text = LastName
-        Label1.Text = UserId
+
+        btnSave.Text = "Update"
+        _isUpdate = True
+
     End Sub
 
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
-        If AddUser() Then
-            RaiseEvent OperationSuccessful()
-            Me.Close()
+        If _isUpdate Then
+            If UpdateUser() Then
+                RaiseEvent OperationSuccessful()
+                Me.Close()
+            Else
+                MessageBox.Show("Failed to update teacher.")
+            End If
         Else
-            MessageBox.Show("Error adding user.")
+
+            If AddUser() Then
+                RaiseEvent OperationSuccessful()
+                MessageBox.Show("Teacher added successfully.")
+                Me.Close()
+            Else
+                MessageBox.Show("Failed to add teacher.")
+            End If
         End If
 
     End Sub
@@ -97,13 +115,9 @@ Public Class FrmUser
         End Using
     End Function
 
-    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
 
-        If UpdateUser() Then
-            RaiseEvent OperationSuccessful()
-            Me.Close()
-        Else
-            MessageBox.Show("Error updating user.")
-        End If
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
+        Close()
     End Sub
 End Class

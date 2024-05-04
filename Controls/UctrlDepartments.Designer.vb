@@ -23,78 +23,120 @@ Partial Class UctrlDepartments
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Panel1 = New Panel()
-        btnDelete = New Button()
-        btnUpdate = New Button()
+        btnSearch = New Button()
+        TextBox1 = New TextBox()
         txtItem = New TextBox()
         btnAdd = New Button()
+        btnDelete = New Button()
+        btnUpdate = New Button()
         Panel2 = New Panel()
+        Panel3 = New Panel()
         LsvItems = New ListView()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
+        Panel3.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
-        Panel1.Controls.Add(btnDelete)
-        Panel1.Controls.Add(btnUpdate)
+        Panel1.BackColor = SystemColors.Control
+        Panel1.Controls.Add(btnSearch)
+        Panel1.Controls.Add(TextBox1)
         Panel1.Controls.Add(txtItem)
         Panel1.Controls.Add(btnAdd)
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(984, 62)
+        Panel1.Size = New Size(968, 62)
         Panel1.TabIndex = 0
+        ' 
+        ' btnSearch
+        ' 
+        btnSearch.FlatStyle = FlatStyle.Flat
+        btnSearch.Font = New Font("Century Gothic", 9.75F)
+        btnSearch.Location = New Point(221, 15)
+        btnSearch.Name = "btnSearch"
+        btnSearch.Size = New Size(100, 31)
+        btnSearch.TabIndex = 3
+        btnSearch.Text = "Search"
+        btnSearch.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        TextBox1.Location = New Point(0, 15)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(223, 31)
+        TextBox1.TabIndex = 2
+        ' 
+        ' txtItem
+        ' 
+        txtItem.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        txtItem.Location = New Point(679, 20)
+        txtItem.Name = "txtItem"
+        txtItem.Size = New Size(206, 31)
+        txtItem.TabIndex = 1
+        ' 
+        ' btnAdd
+        ' 
+        btnAdd.FlatStyle = FlatStyle.Flat
+        btnAdd.Font = New Font("Century Gothic", 9.75F)
+        btnAdd.Location = New Point(893, 20)
+        btnAdd.Name = "btnAdd"
+        btnAdd.Size = New Size(75, 31)
+        btnAdd.TabIndex = 0
+        btnAdd.Text = "Add"
+        btnAdd.UseVisualStyleBackColor = True
         ' 
         ' btnDelete
         ' 
-        btnDelete.Location = New Point(509, 20)
+        btnDelete.Font = New Font("Century Gothic", 9.75F)
+        btnDelete.Location = New Point(766, 8)
         btnDelete.Name = "btnDelete"
-        btnDelete.Size = New Size(75, 23)
+        btnDelete.Size = New Size(98, 31)
         btnDelete.TabIndex = 3
         btnDelete.Text = "Delete"
         btnDelete.UseVisualStyleBackColor = True
         ' 
         ' btnUpdate
         ' 
-        btnUpdate.Location = New Point(590, 20)
+        btnUpdate.Font = New Font("Century Gothic", 9.75F)
+        btnUpdate.Location = New Point(870, 8)
         btnUpdate.Name = "btnUpdate"
-        btnUpdate.Size = New Size(75, 23)
+        btnUpdate.Size = New Size(98, 31)
         btnUpdate.TabIndex = 2
         btnUpdate.Text = "Update"
         btnUpdate.UseVisualStyleBackColor = True
         ' 
-        ' txtItem
-        ' 
-        txtItem.Location = New Point(681, 20)
-        txtItem.Name = "txtItem"
-        txtItem.Size = New Size(206, 23)
-        txtItem.TabIndex = 1
-        ' 
-        ' btnAdd
-        ' 
-        btnAdd.Location = New Point(893, 20)
-        btnAdd.Name = "btnAdd"
-        btnAdd.Size = New Size(75, 23)
-        btnAdd.TabIndex = 0
-        btnAdd.Text = "Add"
-        btnAdd.UseVisualStyleBackColor = True
-        ' 
         ' Panel2
         ' 
         Panel2.Controls.Add(LsvItems)
+        Panel2.Controls.Add(Panel3)
         Panel2.Dock = DockStyle.Fill
         Panel2.Location = New Point(0, 62)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(984, 649)
+        Panel2.Size = New Size(968, 569)
         Panel2.TabIndex = 1
+        ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = SystemColors.Control
+        Panel3.Controls.Add(btnUpdate)
+        Panel3.Controls.Add(btnDelete)
+        Panel3.Dock = DockStyle.Bottom
+        Panel3.Location = New Point(0, 523)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(968, 46)
+        Panel3.TabIndex = 1
         ' 
         ' LsvItems
         ' 
-        LsvItems.Dock = DockStyle.Fill
+        LsvItems.Font = New Font("Century Gothic", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
         LsvItems.FullRowSelect = True
+        LsvItems.GridLines = True
         LsvItems.Location = New Point(0, 0)
         LsvItems.Name = "LsvItems"
-        LsvItems.Size = New Size(984, 649)
+        LsvItems.Size = New Size(968, 525)
         LsvItems.TabIndex = 0
         LsvItems.UseCompatibleStateImageBehavior = False
         LsvItems.View = View.Details
@@ -106,10 +148,11 @@ Partial Class UctrlDepartments
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         Name = "UctrlDepartments"
-        Size = New Size(984, 711)
+        Size = New Size(968, 631)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         Panel2.ResumeLayout(False)
+        Panel3.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -120,5 +163,8 @@ Partial Class UctrlDepartments
     Friend WithEvents txtItem As TextBox
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btnDelete As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnSearch As Button
 
 End Class

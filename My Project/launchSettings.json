@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SchoolMS": {
+      "commandName": "Project",
+      "hotReloadEnabled": false
+    }
+  }
+}

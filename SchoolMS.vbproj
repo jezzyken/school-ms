@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\UctrlSubjects.vb" />
+    <Compile Update="Controls\UctrlStudents.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="My Project\Application.Designer.vb">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
