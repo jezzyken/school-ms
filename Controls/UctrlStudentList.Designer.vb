@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class UctrlAdminDashboard
+Partial Class UctrlStudentList
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -22,30 +22,31 @@ Partial Class UctrlAdminDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UctrlAdminDashboard))
-        Panel1 = New Panel()
+        LsvItems = New ListView()
         SuspendLayout()
         ' 
-        ' Panel1
+        ' LsvItems
         ' 
-        Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), Image)
-        Panel1.BackgroundImageLayout = ImageLayout.Center
-        Panel1.Dock = DockStyle.Fill
-        Panel1.Location = New Point(0, 0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(968, 631)
-        Panel1.TabIndex = 0
+        LsvItems.Dock = DockStyle.Fill
+        LsvItems.FullRowSelect = True
+        LsvItems.GridLines = True
+        LsvItems.Location = New Point(0, 0)
+        LsvItems.Name = "LsvItems"
+        LsvItems.Size = New Size(720, 151)
+        LsvItems.TabIndex = 0
+        LsvItems.UseCompatibleStateImageBehavior = False
+        LsvItems.View = View.Details
         ' 
-        ' UctrlAdminDashboard
+        ' UctrlStudentList
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        Controls.Add(Panel1)
-        Name = "UctrlAdminDashboard"
-        Size = New Size(968, 631)
+        Controls.Add(LsvItems)
+        Name = "UctrlStudentList"
+        Size = New Size(720, 151)
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents LsvItems As ListView
 
 End Class

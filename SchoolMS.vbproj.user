@@ -4,6 +4,15 @@
     <Compile Update="Controls\UctrlCourses.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\UctrlEnrollments.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\UctrlSelectedSubject.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\UctrlStudentList.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\UctrlSubjects.vb">
       <SubType>UserControl</SubType>
     </Compile>

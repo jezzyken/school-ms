@@ -24,6 +24,7 @@ Partial Class FrmMain
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMain))
         Panel1 = New Panel()
+        btnEnroll = New Button()
         btnSubjects = New Button()
         btnStudents = New Button()
         btnDashboard = New Button()
@@ -50,6 +51,7 @@ Partial Class FrmMain
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.MenuHighlight
+        Panel1.Controls.Add(btnEnroll)
         Panel1.Controls.Add(btnSubjects)
         Panel1.Controls.Add(btnStudents)
         Panel1.Controls.Add(btnDashboard)
@@ -58,10 +60,22 @@ Partial Class FrmMain
         Panel1.Controls.Add(btnDepartments)
         Panel1.Controls.Add(btnTeachers)
         Panel1.Controls.Add(btnUsers)
-        Panel1.Location = New Point(0, 43)
+        Panel1.Location = New Point(0, 50)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(200, 668)
+        Panel1.Size = New Size(200, 661)
         Panel1.TabIndex = 0
+        ' 
+        ' btnEnroll
+        ' 
+        btnEnroll.FlatStyle = FlatStyle.Flat
+        btnEnroll.Font = New Font("Century Gothic", 12F)
+        btnEnroll.ForeColor = SystemColors.ButtonFace
+        btnEnroll.Location = New Point(12, 88)
+        btnEnroll.Name = "btnEnroll"
+        btnEnroll.Size = New Size(176, 46)
+        btnEnroll.TabIndex = 8
+        btnEnroll.Text = "Enrollment"
+        btnEnroll.UseVisualStyleBackColor = True
         ' 
         ' btnSubjects
         ' 
@@ -92,7 +106,7 @@ Partial Class FrmMain
         btnDashboard.FlatStyle = FlatStyle.Flat
         btnDashboard.Font = New Font("Century Gothic", 12F)
         btnDashboard.ForeColor = SystemColors.ButtonFace
-        btnDashboard.Location = New Point(12, 88)
+        btnDashboard.Location = New Point(12, 15)
         btnDashboard.Name = "btnDashboard"
         btnDashboard.Size = New Size(176, 46)
         btnDashboard.TabIndex = 5
@@ -163,6 +177,7 @@ Partial Class FrmMain
         ' 
         ' pnlMain
         ' 
+        pnlMain.AutoScroll = True
         pnlMain.Location = New Point(206, 54)
         pnlMain.Name = "pnlMain"
         pnlMain.Size = New Size(968, 631)
@@ -290,5 +305,6 @@ Partial Class FrmMain
     Public WithEvents btnDashboard As Button
     Public WithEvents btnStudents As Button
     Public WithEvents btnSubjects As Button
+    Public WithEvents btnEnroll As Button
 
 End Class

@@ -50,7 +50,7 @@ Partial Class UctrlStudents
         ' 
         ' LsvItems
         ' 
-        LsvItems.Font = New Font("Century Gothic", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LsvItems.Font = New Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         LsvItems.FullRowSelect = True
         LsvItems.GridLines = True
         LsvItems.Location = New Point(0, 62)
@@ -95,7 +95,7 @@ Partial Class UctrlStudents
         ' 
         btnAdd.FlatStyle = FlatStyle.Flat
         btnAdd.Font = New Font("Century Gothic", 9.75F)
-        btnAdd.Location = New Point(893, 20)
+        btnAdd.Location = New Point(870, 16)
         btnAdd.Name = "btnAdd"
         btnAdd.Size = New Size(75, 31)
         btnAdd.TabIndex = 0
@@ -142,9 +142,9 @@ Partial Class UctrlStudents
         Panel4.Size = New Size(968, 46)
         Panel4.TabIndex = 2
         ' 
-        ' UctrlUsers
+        ' UctrlStudents
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(Panel2)
         Controls.Add(Panel1)

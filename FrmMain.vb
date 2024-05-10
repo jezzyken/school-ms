@@ -1,5 +1,6 @@
 ﻿Public Class FrmMain
 
+
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         pnlMain.Controls.Clear()
         Dim _uctrlAdminDashboard As New UctrlAdminDashboard
@@ -50,5 +51,17 @@
         pnlMain.Controls.Clear()
         Dim _uctrlStudents As New UctrlStudents
         pnlMain.Controls.Add(_uctrlStudents)
+    End Sub
+
+    Private Sub btnEnroll_Click(sender As Object, e As EventArgs) Handles btnEnroll.Click
+        pnlMain.Controls.Clear()
+        Dim _uctrlEnrollments As New UctrlEnrollments
+        pnlMain.Controls.Add(_uctrlEnrollments)
+    End Sub
+
+    Private Sub pnlMain_Layout(sender As Object, e As LayoutEventArgs) Handles pnlMain.Layout
+        For Each ctrl As Control In pnlMain.Controls
+            ctrl.Width = pnlMain.ClientSize.Width - SystemInformation.VerticalScrollBarWidth
+        Next
     End Sub
 End Class
