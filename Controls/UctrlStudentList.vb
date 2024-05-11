@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports MySql.Data.MySqlClient
 
 Public Class UctrlStudentList
 
@@ -16,6 +17,7 @@ Public Class UctrlStudentList
     End Class
 
     Public Event StudentSelected(student As Student)
+    Public Event ListViewItemClicked(ByVal studentId As Integer, ByVal firstName As String, ByVal lastName As String, ByVal middleName As String)
 
     Private Sub UctrlStudentList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitializeListView()
@@ -82,5 +84,14 @@ Public Class UctrlStudentList
         End If
     End Sub
 
-
+    Private Sub LsvItems_MouseClick(sender As Object, e As MouseEventArgs) Handles LsvItems.MouseClick
+        If LsvItems.SelectedItems.Count > 0 Then
+            Dim selectedStudent As ListViewItem = LsvItems.SelectedItems(0)
+            Dim studentId As Integer = Convert.ToInt32(selectedStudent.SubItems(0).Text)
+            Dim firstName As String = selectedStudent.SubItems(1).Text
+            Dim lastName As String = selectedStudent.SubItems(2).Text
+            Dim middleName As String = selectedStudent.SubItems(3).Text
+            RaiseEvent ListViewItemClicked(studentId, firstName, lastName, middleName)
+        End If
+    End Sub
 End Class

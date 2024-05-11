@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports MySql.Data.MySqlClient
+Imports Mysqlx.Notice
 
 Public Class UctrlTeachers
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
@@ -119,7 +120,7 @@ Public Class UctrlTeachers
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         If LsvItems.SelectedItems.Count > 0 Then
-            Dim userId As Integer = Convert.ToInt32(LsvItems.SelectedItems(0).Text)
+            Dim userId = Convert.ToInt32(LsvItems.SelectedItems(0).Text)
             If MessageBox.Show("Are you sure you want to delete this teacher and all associated user data?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 If DeleteTeacherAndUserData(userId) Then
                     MessageBox.Show("Teacher and user data deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -129,5 +130,10 @@ Public Class UctrlTeachers
         Else
             MessageBox.Show("Please select a teacher to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+    End Sub
+
+    Private Sub btnAssign_Click(sender As Object, e As EventArgs) Handles btnAssign.Click
+        Dim frmAssign As New FrmAssignStudent
+        frmAssign.Show()
     End Sub
 End Class

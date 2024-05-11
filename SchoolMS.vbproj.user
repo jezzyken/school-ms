@@ -16,6 +16,12 @@
     <Compile Update="Controls\UctrlSubjects.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="FrmAssignStudent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAssignSubjects.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmCourse.vb">
       <SubType>Form</SubType>
     </Compile>

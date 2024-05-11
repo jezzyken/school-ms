@@ -203,6 +203,7 @@ Partial Class FrmTeacher
         Controls.Add(GroupBox2)
         Controls.Add(btnSave)
         Name = "FrmTeacher"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Teacher"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
