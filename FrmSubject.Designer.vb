@@ -167,6 +167,7 @@ Partial Class FrmSubject
         Controls.Add(cboTerm)
         Controls.Add(txtCourseCode)
         Name = "FrmSubject"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "FrmSubject"
         CType(numUnits, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

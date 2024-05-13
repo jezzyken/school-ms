@@ -16,6 +16,7 @@ Public Class FrmStudent
     Private _yearLevel As String
     Private _term As String
     Private _status As String
+    Private _schoolYear As String
     Private _isUpdate As Boolean = False
 
     Public Sub New()
@@ -31,7 +32,7 @@ Public Class FrmStudent
     Private Sub InitializeListView()
         LsvItems.Columns.Clear()
         LsvItems.Columns.Add("ID", 0)
-        LsvItems.Columns.Add("Course Code", 100)
+        LsvItems.Columns.Add("Course Code", 250)
         LsvItems.Columns.Add("Subject", 250)
         LsvItems.Columns.Add("Units", 50)
         LsvItems.FullRowSelect = True
@@ -45,7 +46,7 @@ Public Class FrmStudent
             conn.Open()
             Using cmd As New MySqlCommand("GetSubjectsByStudentId", conn)
                 cmd.CommandType = CommandType.StoredProcedure
-                cmd.Parameters.AddWithValue("@param_student_id", 1)
+                cmd.Parameters.AddWithValue("@param_student_id", Convert.ToInt32(_studentId))
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
                     LsvItems.Items.Clear()
                     While reader.Read()
@@ -60,9 +61,9 @@ Public Class FrmStudent
         End Using
     End Sub
 
-    Public Sub New(studentId As Integer, lrn As String, fname As String, mname As String, lname As String, courseId As Integer, yearLevel As String, term As String, status As String)
+    Public Sub New(studentId As Integer, lrn As String, fname As String, mname As String, lname As String, courseId As Integer, yearLevel As String, term As String, status As String, schoolYear As String)
         InitializeComponent()
-        InitializeListView()
+
         _studentId = studentId
         _fname = fname
         _mname = mname
@@ -72,23 +73,26 @@ Public Class FrmStudent
         _term = term
         _status = status
         _lrn = lrn
+        _schoolYear = schoolYear
 
-        ' Set control values
         txtFname.Text = _fname
         txtMname.Text = _mname
         txtLname.Text = _lname
         txtLrn.Text = _lrn
+        txtSchoolYear.Text = _schoolYear
 
         cboCourses.DataSource = GetCourseList()
         cboCourses.DisplayMember = "course"
         cboCourses.ValueMember = "id"
         cboCourses.SelectedValue = _courseId
-        'txtYearLevel.Text = _yearLevel
         cboTerm.Text = _term
+        cboYearLevel.Text = _yearLevel
         cboStatus.Text = _status
 
         btnSave.Text = "Update"
         _isUpdate = True
+
+        InitializeListView()
     End Sub
 
     Private Function GetCourseList() As DataTable

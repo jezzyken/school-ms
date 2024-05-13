@@ -35,7 +35,7 @@ Partial Class FrmStudent
         LsvItems = New ListView()
         GroupBox2 = New GroupBox()
         Label9 = New Label()
-        TextBox1 = New TextBox()
+        txtSchoolYear = New TextBox()
         Label8 = New Label()
         Label7 = New Label()
         Label5 = New Label()
@@ -104,6 +104,7 @@ Partial Class FrmStudent
         btnSave.TabIndex = 7
         btnSave.Text = "Button1"
         btnSave.UseVisualStyleBackColor = True
+        btnSave.Visible = False
         ' 
         ' txtLrn
         ' 
@@ -144,7 +145,7 @@ Partial Class FrmStudent
         ' GroupBox2
         ' 
         GroupBox2.Controls.Add(Label9)
-        GroupBox2.Controls.Add(TextBox1)
+        GroupBox2.Controls.Add(txtSchoolYear)
         GroupBox2.Controls.Add(Label8)
         GroupBox2.Controls.Add(Label7)
         GroupBox2.Controls.Add(Label5)
@@ -178,12 +179,12 @@ Partial Class FrmStudent
         Label9.TabIndex = 21
         Label9.Text = "School Year"
         ' 
-        ' TextBox1
+        ' txtSchoolYear
         ' 
-        TextBox1.Location = New Point(453, 51)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(194, 23)
-        TextBox1.TabIndex = 20
+        txtSchoolYear.Location = New Point(453, 51)
+        txtSchoolYear.Name = "txtSchoolYear"
+        txtSchoolYear.Size = New Size(194, 23)
+        txtSchoolYear.TabIndex = 20
         ' 
         ' Label8
         ' 
@@ -266,6 +267,7 @@ Partial Class FrmStudent
         Controls.Add(GroupBox1)
         Controls.Add(btnSave)
         Name = "FrmStudent"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "FrmStudent"
         GroupBox1.ResumeLayout(False)
         GroupBox2.ResumeLayout(False)
@@ -295,5 +297,5 @@ Partial Class FrmStudent
     Friend WithEvents Label7 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtSchoolYear As TextBox
 End Class

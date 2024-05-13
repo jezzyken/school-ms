@@ -100,6 +100,7 @@ Partial Class FrmCourse
         Controls.Add(btnSave)
         Controls.Add(GroupBox2)
         Name = "FrmCourse"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "FrmCourse"
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()

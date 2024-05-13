@@ -78,7 +78,7 @@ Partial Class UctrlStudents
         btnSearch.Font = New Font("Century Gothic", 9.75F)
         btnSearch.Location = New Point(221, 15)
         btnSearch.Name = "btnSearch"
-        btnSearch.Size = New Size(100, 31)
+        btnSearch.Size = New Size(82, 31)
         btnSearch.TabIndex = 3
         btnSearch.Text = "Search"
         btnSearch.UseVisualStyleBackColor = True
@@ -86,9 +86,9 @@ Partial Class UctrlStudents
         ' TextBox1
         ' 
         TextBox1.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(0, 15)
+        TextBox1.Location = New Point(11, 15)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(223, 31)
+        TextBox1.Size = New Size(212, 31)
         TextBox1.TabIndex = 2
         ' 
         ' btnAdd
@@ -104,8 +104,9 @@ Partial Class UctrlStudents
         ' 
         ' btnDelete
         ' 
+        btnDelete.FlatStyle = FlatStyle.Flat
         btnDelete.Font = New Font("Century Gothic", 9.75F)
-        btnDelete.Location = New Point(766, 8)
+        btnDelete.Location = New Point(743, 8)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(98, 31)
         btnDelete.TabIndex = 3
@@ -114,12 +115,13 @@ Partial Class UctrlStudents
         ' 
         ' btnUpdate
         ' 
+        btnUpdate.FlatStyle = FlatStyle.Flat
         btnUpdate.Font = New Font("Century Gothic", 9.75F)
-        btnUpdate.Location = New Point(870, 8)
+        btnUpdate.Location = New Point(847, 8)
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(98, 31)
         btnUpdate.TabIndex = 2
-        btnUpdate.Text = "Update"
+        btnUpdate.Text = "View"
         btnUpdate.UseVisualStyleBackColor = True
         ' 
         ' Panel2

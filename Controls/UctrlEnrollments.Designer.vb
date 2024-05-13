@@ -27,12 +27,11 @@ Partial Class UctrlEnrollments
         Panel2 = New Panel()
         TextBox1 = New TextBox()
         Button1 = New Button()
-        TextBox2 = New TextBox()
-        Panel4 = New Panel()
+        txtLRN = New TextBox()
         GroupBox1 = New GroupBox()
         Label1 = New Label()
         Label2 = New Label()
-        ComboBox1 = New ComboBox()
+        cboStatus = New ComboBox()
         GroupBox2 = New GroupBox()
         Label3 = New Label()
         Label5 = New Label()
@@ -50,13 +49,9 @@ Partial Class UctrlEnrollments
         Y = New Label()
         Label8 = New Label()
         cboSchoolYear = New ComboBox()
-        Button2 = New Button()
         Label9 = New Label()
         cboSemester = New ComboBox()
         btnQuerySubject = New Button()
-        Label7 = New Label()
-        Label10 = New Label()
-        Label11 = New Label()
         btnSave = New Button()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
@@ -73,7 +68,7 @@ Partial Class UctrlEnrollments
         Panel1.Dock = DockStyle.Fill
         Panel1.Location = New Point(3, 23)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(941, 148)
+        Panel1.Size = New Size(941, 187)
         Panel1.TabIndex = 0
         ' 
         ' UctrlStudentList
@@ -82,7 +77,7 @@ Partial Class UctrlEnrollments
         UctrlStudentList.Font = New Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         UctrlStudentList.Location = New Point(0, 51)
         UctrlStudentList.Name = "UctrlStudentList"
-        UctrlStudentList.Size = New Size(941, 97)
+        UctrlStudentList.Size = New Size(941, 136)
         UctrlStudentList.TabIndex = 2
         ' 
         ' Panel2
@@ -98,7 +93,7 @@ Partial Class UctrlEnrollments
         ' TextBox1
         ' 
         TextBox1.Font = New Font("Century Gothic", 9.75F)
-        TextBox1.Location = New Point(639, 14)
+        TextBox1.Location = New Point(646, 14)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(210, 23)
         TextBox1.TabIndex = 1
@@ -114,21 +109,13 @@ Partial Class UctrlEnrollments
         Button1.Text = "Search"
         Button1.UseVisualStyleBackColor = True
         ' 
-        ' TextBox2
+        ' txtLRN
         ' 
-        TextBox2.Font = New Font("Century Gothic", 9.75F)
-        TextBox2.Location = New Point(6, 106)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(199, 23)
-        TextBox2.TabIndex = 1
-        ' 
-        ' Panel4
-        ' 
-        Panel4.Dock = DockStyle.Bottom
-        Panel4.Location = New Point(0, 591)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(968, 40)
-        Panel4.TabIndex = 4
+        txtLRN.Font = New Font("Century Gothic", 9.75F)
+        txtLRN.Location = New Point(6, 106)
+        txtLRN.Name = "txtLRN"
+        txtLRN.Size = New Size(199, 23)
+        txtLRN.TabIndex = 1
         ' 
         ' GroupBox1
         ' 
@@ -136,7 +123,7 @@ Partial Class UctrlEnrollments
         GroupBox1.Font = New Font("Century Gothic", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         GroupBox1.Location = New Point(9, 14)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(947, 174)
+        GroupBox1.Size = New Size(947, 213)
         GroupBox1.TabIndex = 6
         GroupBox1.TabStop = False
         GroupBox1.Text = "Student List"
@@ -161,15 +148,15 @@ Partial Class UctrlEnrollments
         Label2.TabIndex = 9
         Label2.Text = "Status"
         ' 
-        ' ComboBox1
+        ' cboStatus
         ' 
-        ComboBox1.Font = New Font("Century Gothic", 9.75F)
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"New", "Old"})
-        ComboBox1.Location = New Point(6, 51)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(199, 25)
-        ComboBox1.TabIndex = 10
+        cboStatus.Font = New Font("Century Gothic", 9.75F)
+        cboStatus.FormattingEnabled = True
+        cboStatus.Items.AddRange(New Object() {"New", "Old"})
+        cboStatus.Location = New Point(6, 51)
+        cboStatus.Name = "cboStatus"
+        cboStatus.Size = New Size(199, 25)
+        cboStatus.TabIndex = 10
         ' 
         ' GroupBox2
         ' 
@@ -180,14 +167,14 @@ Partial Class UctrlEnrollments
         GroupBox2.Controls.Add(Label4)
         GroupBox2.Controls.Add(txtLname)
         GroupBox2.Controls.Add(txtFname)
-        GroupBox2.Controls.Add(ComboBox1)
+        GroupBox2.Controls.Add(cboStatus)
         GroupBox2.Controls.Add(Label1)
         GroupBox2.Controls.Add(Label2)
-        GroupBox2.Controls.Add(TextBox2)
+        GroupBox2.Controls.Add(txtLRN)
         GroupBox2.Font = New Font("Century Gothic", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        GroupBox2.Location = New Point(3, 194)
+        GroupBox2.Location = New Point(3, 245)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(227, 391)
+        GroupBox2.Size = New Size(227, 343)
         GroupBox2.TabIndex = 11
         GroupBox2.TabStop = False
         GroupBox2.Text = "Student Information"
@@ -251,7 +238,7 @@ Partial Class UctrlEnrollments
         cboYearLevel.Font = New Font("Century Gothic", 9.75F)
         cboYearLevel.FormattingEnabled = True
         cboYearLevel.Items.AddRange(New Object() {"First Year", "Second Year", "Third Year", "Forth Year"})
-        cboYearLevel.Location = New Point(552, 227)
+        cboYearLevel.Location = New Point(552, 281)
         cboYearLevel.Name = "cboYearLevel"
         cboYearLevel.Size = New Size(152, 25)
         cboYearLevel.TabIndex = 20
@@ -261,7 +248,7 @@ Partial Class UctrlEnrollments
         cboCourses.Font = New Font("Century Gothic", 9.75F)
         cboCourses.FormattingEnabled = True
         cboCourses.Items.AddRange(New Object() {"New", "Old"})
-        cboCourses.Location = New Point(236, 227)
+        cboCourses.Location = New Point(236, 281)
         cboCourses.Name = "cboCourses"
         cboCourses.Size = New Size(152, 25)
         cboCourses.TabIndex = 18
@@ -270,7 +257,7 @@ Partial Class UctrlEnrollments
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Century Gothic", 9.75F)
-        Label6.Location = New Point(236, 203)
+        Label6.Location = New Point(236, 257)
         Label6.Name = "Label6"
         Label6.Size = New Size(53, 17)
         Label6.TabIndex = 17
@@ -279,9 +266,9 @@ Partial Class UctrlEnrollments
         ' Panel3
         ' 
         Panel3.Controls.Add(LsvSelectedSubjects)
-        Panel3.Location = New Point(236, 376)
+        Panel3.Location = New Point(233, 476)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(720, 106)
+        Panel3.Size = New Size(720, 112)
         Panel3.TabIndex = 22
         ' 
         ' LsvSelectedSubjects
@@ -290,7 +277,7 @@ Partial Class UctrlEnrollments
         LsvSelectedSubjects.GridLines = True
         LsvSelectedSubjects.Location = New Point(0, 0)
         LsvSelectedSubjects.Name = "LsvSelectedSubjects"
-        LsvSelectedSubjects.Size = New Size(720, 106)
+        LsvSelectedSubjects.Size = New Size(720, 112)
         LsvSelectedSubjects.TabIndex = 0
         LsvSelectedSubjects.UseCompatibleStateImageBehavior = False
         LsvSelectedSubjects.View = View.Details
@@ -300,9 +287,9 @@ Partial Class UctrlEnrollments
         GroupBox3.BackColor = SystemColors.Control
         GroupBox3.Controls.Add(LsvSubjectItems)
         GroupBox3.Font = New Font("Century Gothic", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        GroupBox3.Location = New Point(236, 263)
+        GroupBox3.Location = New Point(236, 314)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(717, 107)
+        GroupBox3.Size = New Size(717, 156)
         GroupBox3.TabIndex = 23
         GroupBox3.TabStop = False
         GroupBox3.Text = "Available Subjects"
@@ -313,7 +300,7 @@ Partial Class UctrlEnrollments
         LsvSubjectItems.GridLines = True
         LsvSubjectItems.Location = New Point(3, 18)
         LsvSubjectItems.Name = "LsvSubjectItems"
-        LsvSubjectItems.Size = New Size(711, 86)
+        LsvSubjectItems.Size = New Size(711, 135)
         LsvSubjectItems.TabIndex = 0
         LsvSubjectItems.UseCompatibleStateImageBehavior = False
         LsvSubjectItems.View = View.Details
@@ -322,7 +309,7 @@ Partial Class UctrlEnrollments
         ' 
         Y.AutoSize = True
         Y.Font = New Font("Century Gothic", 9.75F)
-        Y.Location = New Point(552, 203)
+        Y.Location = New Point(552, 257)
         Y.Name = "Y"
         Y.Size = New Size(73, 17)
         Y.TabIndex = 24
@@ -332,7 +319,7 @@ Partial Class UctrlEnrollments
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Century Gothic", 9.75F)
-        Label8.Location = New Point(710, 207)
+        Label8.Location = New Point(710, 261)
         Label8.Name = "Label8"
         Label8.Size = New Size(83, 17)
         Label8.TabIndex = 26
@@ -343,25 +330,16 @@ Partial Class UctrlEnrollments
         cboSchoolYear.Font = New Font("Century Gothic", 9.75F)
         cboSchoolYear.FormattingEnabled = True
         cboSchoolYear.Items.AddRange(New Object() {"2021-2022", "2023-2024", "2025-2026", "2027-2028", "2029-2030", "2031-2032", "2033-2034"})
-        cboSchoolYear.Location = New Point(710, 227)
+        cboSchoolYear.Location = New Point(710, 281)
         cboSchoolYear.Name = "cboSchoolYear"
         cboSchoolYear.Size = New Size(152, 25)
         cboSchoolYear.TabIndex = 25
-        ' 
-        ' Button2
-        ' 
-        Button2.Location = New Point(810, 562)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(116, 23)
-        Button2.TabIndex = 27
-        Button2.Text = "Button2"
-        Button2.UseVisualStyleBackColor = True
         ' 
         ' Label9
         ' 
         Label9.AutoSize = True
         Label9.Font = New Font("Century Gothic", 9.75F)
-        Label9.Location = New Point(394, 203)
+        Label9.Location = New Point(394, 257)
         Label9.Name = "Label9"
         Label9.Size = New Size(38, 17)
         Label9.TabIndex = 29
@@ -372,7 +350,7 @@ Partial Class UctrlEnrollments
         cboSemester.Font = New Font("Century Gothic", 9.75F)
         cboSemester.FormattingEnabled = True
         cboSemester.Items.AddRange(New Object() {"First Term", "Second Term"})
-        cboSemester.Location = New Point(394, 227)
+        cboSemester.Location = New Point(394, 281)
         cboSemester.Name = "cboSemester"
         cboSemester.Size = New Size(152, 25)
         cboSemester.TabIndex = 28
@@ -380,43 +358,16 @@ Partial Class UctrlEnrollments
         ' btnQuerySubject
         ' 
         btnQuerySubject.FlatStyle = FlatStyle.Flat
-        btnQuerySubject.Location = New Point(867, 227)
+        btnQuerySubject.Location = New Point(867, 281)
         btnQuerySubject.Name = "btnQuerySubject"
         btnQuerySubject.Size = New Size(84, 25)
         btnQuerySubject.TabIndex = 30
         btnQuerySubject.Text = "FIND"
         btnQuerySubject.UseVisualStyleBackColor = True
         ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Location = New Point(327, 557)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(40, 15)
-        Label7.TabIndex = 31
-        Label7.Text = "cbo id"
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Location = New Point(418, 557)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(47, 15)
-        Label10.TabIndex = 32
-        Label10.Text = "Label10"
-        ' 
-        ' Label11
-        ' 
-        Label11.AutoSize = True
-        Label11.Location = New Point(502, 559)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(47, 15)
-        Label11.TabIndex = 33
-        Label11.Text = "Label11"
-        ' 
         ' btnSave
         ' 
-        btnSave.Location = New Point(881, 488)
+        btnSave.Location = New Point(876, 594)
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(75, 23)
         btnSave.TabIndex = 34
@@ -428,13 +379,9 @@ Partial Class UctrlEnrollments
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(btnSave)
-        Controls.Add(Label11)
-        Controls.Add(Label10)
-        Controls.Add(Label7)
         Controls.Add(btnQuerySubject)
         Controls.Add(Label9)
         Controls.Add(cboSemester)
-        Controls.Add(Button2)
         Controls.Add(Label8)
         Controls.Add(cboSchoolYear)
         Controls.Add(Y)
@@ -445,7 +392,6 @@ Partial Class UctrlEnrollments
         Controls.Add(GroupBox2)
         Controls.Add(Label6)
         Controls.Add(GroupBox1)
-        Controls.Add(Panel4)
         Name = "UctrlEnrollments"
         Size = New Size(968, 631)
         Panel1.ResumeLayout(False)
@@ -465,12 +411,11 @@ Partial Class UctrlEnrollments
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents txtLRN As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboStatus As ComboBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents cboYearLevel As ComboBox
     Friend WithEvents cboCourses As ComboBox
@@ -486,14 +431,10 @@ Partial Class UctrlEnrollments
     Friend WithEvents Y As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents cboSchoolYear As ComboBox
-    Friend WithEvents Button2 As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents cboSemester As ComboBox
     Friend WithEvents LsvSubjectItems As ListView
     Friend WithEvents btnQuerySubject As Button
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
     Friend WithEvents LsvSelectedSubjects As ListView
     Friend WithEvents btnSave As Button
 

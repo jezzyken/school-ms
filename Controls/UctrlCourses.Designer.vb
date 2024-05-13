@@ -74,16 +74,16 @@ Partial Class UctrlCourses
         ' TextBox1
         ' 
         TextBox1.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(0, 15)
+        TextBox1.Location = New Point(16, 15)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(223, 31)
+        TextBox1.Size = New Size(207, 31)
         TextBox1.TabIndex = 2
         ' 
         ' btnAdd
         ' 
         btnAdd.FlatStyle = FlatStyle.Flat
         btnAdd.Font = New Font("Century Gothic", 9.75F)
-        btnAdd.Location = New Point(893, 20)
+        btnAdd.Location = New Point(878, 17)
         btnAdd.Name = "btnAdd"
         btnAdd.Size = New Size(75, 31)
         btnAdd.TabIndex = 0
@@ -93,7 +93,7 @@ Partial Class UctrlCourses
         ' btnUpdate
         ' 
         btnUpdate.Font = New Font("Century Gothic", 9.75F)
-        btnUpdate.Location = New Point(870, 8)
+        btnUpdate.Location = New Point(855, 8)
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(98, 31)
         btnUpdate.TabIndex = 2
@@ -103,7 +103,7 @@ Partial Class UctrlCourses
         ' btnDelete
         ' 
         btnDelete.Font = New Font("Century Gothic", 9.75F)
-        btnDelete.Location = New Point(766, 8)
+        btnDelete.Location = New Point(751, 8)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(98, 31)
         btnDelete.TabIndex = 3

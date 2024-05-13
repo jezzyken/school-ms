@@ -64,4 +64,10 @@
             ctrl.Width = pnlMain.ClientSize.Width - SystemInformation.VerticalScrollBarWidth
         Next
     End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        Dim mainForm As New FrmLogin
+        mainForm.Show()
+        Me.Hide()
+    End Sub
 End Class

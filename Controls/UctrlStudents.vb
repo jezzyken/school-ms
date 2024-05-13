@@ -17,6 +17,7 @@ Public Class UctrlStudents
         LsvItems.Columns.Add("Year Level", 100)
         LsvItems.Columns.Add("Term", 100)
         LsvItems.Columns.Add("Status", 100)
+        LsvItems.Columns.Add("School Year", 100)
         LsvItems.FullRowSelect = True
         LsvItems.GridLines = True
         LsvItems.View = View.Details
@@ -41,6 +42,7 @@ Public Class UctrlStudents
                             .SubItems.Add(reader("year_level").ToString())
                             .SubItems.Add(reader("term").ToString())
                             .SubItems.Add(reader("status").ToString())
+                            .SubItems.Add(reader("school_year").ToString())
                         End With
                     End While
                 End Using
@@ -70,8 +72,9 @@ Public Class UctrlStudents
         Dim yearLevel As String = selectedItem.SubItems(7).Text
         Dim term As String = selectedItem.SubItems(8).Text
         Dim status As String = selectedItem.SubItems(9).Text
+        Dim schoolYear As String = selectedItem.SubItems(10).Text
 
-        Dim frmStudent As New FrmStudent(studentId, lrn, fname, mname, lname, courseId, yearLevel, term, status)
+        Dim frmStudent As New FrmStudent(studentId, lrn, fname, mname, lname, courseId, yearLevel, term, status, schoolYear)
         AddHandler frmStudent.OperationSuccessful, AddressOf ReloadList
         frmStudent.Show()
     End Sub

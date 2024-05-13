@@ -7,6 +7,7 @@ Public Class UctrlEnrollments
     Private selectedCourseId As String
     Private selectedTerm As String
     Private selectedLevel As String
+    Private studentId As String
 
     Private Sub UctrlEnrollments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboCourses.DataSource = GetCourseList()
@@ -33,6 +34,8 @@ Public Class UctrlEnrollments
         txtFname.Text = student.FirstName
         txtMname.Text = student.MiddleName
         txtLname.Text = student.LastName
+        txtLRN.Text = student.LRN
+        studentId = student.ID
         cboCourses.SelectedValue = student.CourseID
     End Sub
 
@@ -66,10 +69,6 @@ Public Class UctrlEnrollments
 
 
     Private Sub btnQuerySubject_Click(sender As Object, e As EventArgs) Handles btnQuerySubject.Click
-
-        Label7.Text = selectedCourseId
-        Label10.Text = selectedTerm
-        Label11.Text = selectedLevel
         Using conn As MySqlConnection = GetConnection()
             conn.Open()
             Dim sql As String = "SELECT * FROM tbl_subjects WHERE course_id = @CourseId AND term = @Term AND level = @Level"
@@ -132,21 +131,15 @@ Public Class UctrlEnrollments
     End Function
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim studentId As Integer = 1
-
         Using conn As MySqlConnection = GetConnection()
             Try
                 conn.Open()
-                For Each item As ListViewItem In LsvSelectedSubjects.Items
-                    Dim subjectId As Integer = Convert.ToInt32(item.Text)
-                    If Not DatabaseHasSubject(studentId, subjectId, conn) Then
-                        Using cmd As New MySqlCommand("INSERT INTO tbl_student_subjects (student_id, subject_id) VALUES (@studentId, @subjectId)", conn)
-                            cmd.Parameters.AddWithValue("@studentId", studentId)
-                            cmd.Parameters.AddWithValue("@subjectId", subjectId)
-                            cmd.ExecuteNonQuery()
-                        End Using
-                    End If
-                Next
+                If cboStatus.SelectedItem.ToString() = "New" Then
+                    CreateNewStudent(conn)
+                    UpdateStudentSubjects(conn)
+                Else
+                    UpdateStudentSubjects(conn)
+                End If
                 MessageBox.Show("Data saved successfully!")
             Catch ex As Exception
                 MessageBox.Show("Error: " & ex.Message)
@@ -154,6 +147,47 @@ Public Class UctrlEnrollments
                 conn.Close()
             End Try
         End Using
+    End Sub
+
+    Private Sub CreateNewStudent(conn As MySqlConnection)
+        Dim sql As String = "INSERT INTO tbl_students (lrn, fname, mname, lname, course_id, year_level, term, status) VALUES (@lrn, @fname, @mname, @lname, @course_id, @year_level, @term, @status)"
+        Using cmd As New MySqlCommand(sql, conn)
+            cmd.Parameters.AddWithValue("@fname", txtFname.Text)
+            cmd.Parameters.AddWithValue("@mname", txtMname.Text)
+            cmd.Parameters.AddWithValue("@lname", txtLname.Text)
+            cmd.Parameters.AddWithValue("@lrn", txtLRN.Text)
+            cmd.Parameters.AddWithValue("@course_id", cboCourses.SelectedValue)
+            cmd.Parameters.AddWithValue("@year_level", cboYearLevel.Text)
+            cmd.Parameters.AddWithValue("@term", cboSemester.Text)
+            cmd.Parameters.AddWithValue("@school_year", cboSchoolYear.Text)
+            cmd.Parameters.AddWithValue("@status", "New")
+            cmd.ExecuteNonQuery()
+
+            Dim studentId As Integer = CInt(cmd.LastInsertedId)
+
+            For Each item As ListViewItem In LsvSelectedSubjects.Items
+                Dim subjectId As Integer = Convert.ToInt32(item.Text)
+                Using cmdInsertSubject As New MySqlCommand("INSERT INTO tbl_student_subjects (student_id, subject_id) VALUES (@studentId, @subjectId)", conn)
+                    cmdInsertSubject.Parameters.AddWithValue("@studentId", studentId)
+                    cmdInsertSubject.Parameters.AddWithValue("@subjectId", subjectId)
+                    cmdInsertSubject.ExecuteNonQuery()
+                End Using
+            Next
+        End Using
+    End Sub
+
+
+    Private Sub UpdateStudentSubjects(conn As MySqlConnection)
+        For Each item As ListViewItem In LsvSelectedSubjects.Items
+            Dim subjectId As Integer = Convert.ToInt32(item.Text)
+            If Not DatabaseHasSubject(studentId, subjectId, conn) Then
+                Using cmd As New MySqlCommand("INSERT INTO tbl_student_subjects (student_id, subject_id) VALUES (@studentId, @subjectId)", conn)
+                    cmd.Parameters.AddWithValue("@studentId", studentId)
+                    cmd.Parameters.AddWithValue("@subjectId", subjectId)
+                    cmd.ExecuteNonQuery()
+                End Using
+            End If
+        Next
     End Sub
 
     Private Function DatabaseHasSubject(studentId As Integer, subjectId As Integer, conn As MySqlConnection) As Boolean
@@ -164,4 +198,36 @@ Public Class UctrlEnrollments
             Return result > 0
         End Using
     End Function
+
+
+
+    Private Sub cboStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboStatus.SelectedIndexChanged
+        If cboStatus.SelectedItem.ToString() = "New" Then
+            ClearTextFields()
+            'EnableFields()
+            'Else
+            '    DisableFields()
+        End If
+    End Sub
+
+    Private Sub ClearTextFields()
+        txtFname.Text = ""
+        txtMname.Text = ""
+        txtLname.Text = ""
+        txtLRN.Text = ""
+    End Sub
+
+    'Private Sub EnableFields()
+    '    txtFname.Enabled = True
+    '    txtMname.Enabled = True
+    '    txtLname.Enabled = True
+    '    txtLRN.Enabled = True
+    'End Sub
+
+    'Private Sub DisableFields()
+    '    txtFname.Enabled = False
+    '    txtMname.Enabled = False
+    '    txtLname.Enabled = False
+    '    txtLRN.Enabled = False
+    'End Sub
 End Class

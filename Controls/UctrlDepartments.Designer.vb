@@ -30,8 +30,8 @@ Partial Class UctrlDepartments
         btnDelete = New Button()
         btnUpdate = New Button()
         Panel2 = New Panel()
-        Panel3 = New Panel()
         LsvItems = New ListView()
+        Panel3 = New Panel()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -63,15 +63,15 @@ Partial Class UctrlDepartments
         ' 
         ' TextBox1
         ' 
-        TextBox1.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0)
-        TextBox1.Location = New Point(0, 15)
+        TextBox1.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox1.Location = New Point(15, 15)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(223, 31)
+        TextBox1.Size = New Size(208, 31)
         TextBox1.TabIndex = 2
         ' 
         ' txtItem
         ' 
-        txtItem.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        txtItem.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtItem.Location = New Point(679, 20)
         txtItem.Name = "txtItem"
         txtItem.Size = New Size(206, 31)
@@ -81,7 +81,7 @@ Partial Class UctrlDepartments
         ' 
         btnAdd.FlatStyle = FlatStyle.Flat
         btnAdd.Font = New Font("Century Gothic", 9.75F)
-        btnAdd.Location = New Point(893, 20)
+        btnAdd.Location = New Point(881, 20)
         btnAdd.Name = "btnAdd"
         btnAdd.Size = New Size(75, 31)
         btnAdd.TabIndex = 0
@@ -91,7 +91,7 @@ Partial Class UctrlDepartments
         ' btnDelete
         ' 
         btnDelete.Font = New Font("Century Gothic", 9.75F)
-        btnDelete.Location = New Point(766, 8)
+        btnDelete.Location = New Point(754, 8)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(98, 31)
         btnDelete.TabIndex = 3
@@ -101,7 +101,7 @@ Partial Class UctrlDepartments
         ' btnUpdate
         ' 
         btnUpdate.Font = New Font("Century Gothic", 9.75F)
-        btnUpdate.Location = New Point(870, 8)
+        btnUpdate.Location = New Point(858, 8)
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(98, 31)
         btnUpdate.TabIndex = 2
@@ -118,6 +118,18 @@ Partial Class UctrlDepartments
         Panel2.Size = New Size(968, 569)
         Panel2.TabIndex = 1
         ' 
+        ' LsvItems
+        ' 
+        LsvItems.Font = New Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LsvItems.FullRowSelect = True
+        LsvItems.GridLines = True
+        LsvItems.Location = New Point(0, 0)
+        LsvItems.Name = "LsvItems"
+        LsvItems.Size = New Size(968, 525)
+        LsvItems.TabIndex = 0
+        LsvItems.UseCompatibleStateImageBehavior = False
+        LsvItems.View = View.Details
+        ' 
         ' Panel3
         ' 
         Panel3.BackColor = SystemColors.Control
@@ -128,18 +140,6 @@ Partial Class UctrlDepartments
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(968, 46)
         Panel3.TabIndex = 1
-        ' 
-        ' LsvItems
-        ' 
-        LsvItems.Font = New Font("Century Gothic", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
-        LsvItems.FullRowSelect = True
-        LsvItems.GridLines = True
-        LsvItems.Location = New Point(0, 0)
-        LsvItems.Name = "LsvItems"
-        LsvItems.Size = New Size(968, 525)
-        LsvItems.TabIndex = 0
-        LsvItems.UseCompatibleStateImageBehavior = False
-        LsvItems.View = View.Details
         ' 
         ' UctrlDepartments
         ' 

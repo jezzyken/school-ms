@@ -32,7 +32,6 @@ Partial Class UctrlSubjects
         btnUpdate = New Button()
         Panel2 = New Panel()
         Panel4 = New Panel()
-        Label1 = New Label()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         Panel2.SuspendLayout()
@@ -64,7 +63,6 @@ Partial Class UctrlSubjects
         ' Panel3
         ' 
         Panel3.BackColor = SystemColors.Control
-        Panel3.Controls.Add(Label1)
         Panel3.Controls.Add(btnSearch)
         Panel3.Controls.Add(TextBox1)
         Panel3.Controls.Add(btnAdd)
@@ -88,16 +86,16 @@ Partial Class UctrlSubjects
         ' TextBox1
         ' 
         TextBox1.Font = New Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(0, 15)
+        TextBox1.Location = New Point(14, 15)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(223, 31)
+        TextBox1.Size = New Size(209, 31)
         TextBox1.TabIndex = 2
         ' 
         ' btnAdd
         ' 
         btnAdd.FlatStyle = FlatStyle.Flat
         btnAdd.Font = New Font("Century Gothic", 9.75F)
-        btnAdd.Location = New Point(893, 20)
+        btnAdd.Location = New Point(880, 16)
         btnAdd.Name = "btnAdd"
         btnAdd.Size = New Size(75, 31)
         btnAdd.TabIndex = 0
@@ -107,7 +105,7 @@ Partial Class UctrlSubjects
         ' btnDelete
         ' 
         btnDelete.Font = New Font("Century Gothic", 9.75F)
-        btnDelete.Location = New Point(766, 8)
+        btnDelete.Location = New Point(753, 8)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(98, 31)
         btnDelete.TabIndex = 3
@@ -117,7 +115,7 @@ Partial Class UctrlSubjects
         ' btnUpdate
         ' 
         btnUpdate.Font = New Font("Century Gothic", 9.75F)
-        btnUpdate.Location = New Point(870, 8)
+        btnUpdate.Location = New Point(857, 8)
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(98, 31)
         btnUpdate.TabIndex = 2
@@ -143,15 +141,6 @@ Partial Class UctrlSubjects
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(968, 46)
         Panel4.TabIndex = 2
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(401, 31)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(41, 15)
-        Label1.TabIndex = 4
-        Label1.Text = "Label1"
         ' 
         ' UctrlSubjects
         ' 
@@ -179,6 +168,5 @@ Partial Class UctrlSubjects
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Panel4 As Panel
     Friend WithEvents LsvItems As ListView
-    Friend WithEvents Label1 As Label
 
 End Class

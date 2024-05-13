@@ -25,14 +25,13 @@ Partial Class FrmMain
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMain))
         Panel1 = New Panel()
         btnEnroll = New Button()
-        btnSubjects = New Button()
-        btnStudents = New Button()
         btnDashboard = New Button()
         btnCourses = New Button()
-        Button1 = New Button()
         btnDepartments = New Button()
         btnTeachers = New Button()
         btnUsers = New Button()
+        btnStudents = New Button()
+        btnSubjects = New Button()
         pnlMain = New Panel()
         StatusStrip1 = New StatusStrip()
         ToolStripStatusLabel1 = New ToolStripStatusLabel()
@@ -43,6 +42,7 @@ Partial Class FrmMain
         Panel2 = New Panel()
         Button3 = New Button()
         Panel3 = New Panel()
+        btnLogout = New Button()
         Panel1.SuspendLayout()
         StatusStrip1.SuspendLayout()
         Panel2.SuspendLayout()
@@ -51,15 +51,15 @@ Partial Class FrmMain
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.MenuHighlight
+        Panel1.Controls.Add(btnLogout)
         Panel1.Controls.Add(btnEnroll)
-        Panel1.Controls.Add(btnSubjects)
-        Panel1.Controls.Add(btnStudents)
         Panel1.Controls.Add(btnDashboard)
         Panel1.Controls.Add(btnCourses)
-        Panel1.Controls.Add(Button1)
         Panel1.Controls.Add(btnDepartments)
         Panel1.Controls.Add(btnTeachers)
         Panel1.Controls.Add(btnUsers)
+        Panel1.Controls.Add(btnStudents)
+        Panel1.Controls.Add(btnSubjects)
         Panel1.Location = New Point(0, 50)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(200, 661)
@@ -70,43 +70,19 @@ Partial Class FrmMain
         btnEnroll.FlatStyle = FlatStyle.Flat
         btnEnroll.Font = New Font("Century Gothic", 12F)
         btnEnroll.ForeColor = SystemColors.ButtonFace
-        btnEnroll.Location = New Point(12, 88)
+        btnEnroll.Location = New Point(12, 82)
         btnEnroll.Name = "btnEnroll"
         btnEnroll.Size = New Size(176, 46)
         btnEnroll.TabIndex = 8
         btnEnroll.Text = "Enrollment"
         btnEnroll.UseVisualStyleBackColor = True
         ' 
-        ' btnSubjects
-        ' 
-        btnSubjects.FlatStyle = FlatStyle.Flat
-        btnSubjects.Font = New Font("Century Gothic", 12F)
-        btnSubjects.ForeColor = SystemColors.ButtonFace
-        btnSubjects.Location = New Point(12, 518)
-        btnSubjects.Name = "btnSubjects"
-        btnSubjects.Size = New Size(176, 46)
-        btnSubjects.TabIndex = 7
-        btnSubjects.Text = "Subjects"
-        btnSubjects.UseVisualStyleBackColor = True
-        ' 
-        ' btnStudents
-        ' 
-        btnStudents.FlatStyle = FlatStyle.Flat
-        btnStudents.Font = New Font("Century Gothic", 12F)
-        btnStudents.ForeColor = SystemColors.ButtonFace
-        btnStudents.Location = New Point(12, 456)
-        btnStudents.Name = "btnStudents"
-        btnStudents.Size = New Size(176, 46)
-        btnStudents.TabIndex = 6
-        btnStudents.Text = "Students"
-        btnStudents.UseVisualStyleBackColor = True
-        ' 
         ' btnDashboard
         ' 
         btnDashboard.FlatStyle = FlatStyle.Flat
         btnDashboard.Font = New Font("Century Gothic", 12F)
         btnDashboard.ForeColor = SystemColors.ButtonFace
-        btnDashboard.Location = New Point(12, 15)
+        btnDashboard.Location = New Point(12, 22)
         btnDashboard.Name = "btnDashboard"
         btnDashboard.Size = New Size(176, 46)
         btnDashboard.TabIndex = 5
@@ -118,31 +94,19 @@ Partial Class FrmMain
         btnCourses.FlatStyle = FlatStyle.Flat
         btnCourses.Font = New Font("Century Gothic", 12F)
         btnCourses.ForeColor = SystemColors.ButtonFace
-        btnCourses.Location = New Point(12, 394)
+        btnCourses.Location = New Point(12, 262)
         btnCourses.Name = "btnCourses"
         btnCourses.Size = New Size(176, 46)
         btnCourses.TabIndex = 4
         btnCourses.Text = "Courses"
         btnCourses.UseVisualStyleBackColor = True
         ' 
-        ' Button1
-        ' 
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Century Gothic", 12F)
-        Button1.ForeColor = SystemColors.ButtonFace
-        Button1.Location = New Point(12, 332)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(176, 46)
-        Button1.TabIndex = 3
-        Button1.Text = "Programs"
-        Button1.UseVisualStyleBackColor = True
-        ' 
         ' btnDepartments
         ' 
         btnDepartments.FlatStyle = FlatStyle.Flat
         btnDepartments.Font = New Font("Century Gothic", 12F)
         btnDepartments.ForeColor = SystemColors.ButtonFace
-        btnDepartments.Location = New Point(12, 271)
+        btnDepartments.Location = New Point(12, 383)
         btnDepartments.Name = "btnDepartments"
         btnDepartments.Size = New Size(176, 46)
         btnDepartments.TabIndex = 2
@@ -154,7 +118,7 @@ Partial Class FrmMain
         btnTeachers.FlatStyle = FlatStyle.Flat
         btnTeachers.Font = New Font("Century Gothic", 12F)
         btnTeachers.ForeColor = SystemColors.ButtonFace
-        btnTeachers.Location = New Point(12, 210)
+        btnTeachers.Location = New Point(12, 202)
         btnTeachers.Name = "btnTeachers"
         btnTeachers.Size = New Size(176, 46)
         btnTeachers.TabIndex = 1
@@ -168,12 +132,36 @@ Partial Class FrmMain
         btnUsers.Font = New Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         btnUsers.ForeColor = SystemColors.ButtonFace
         btnUsers.ImageAlign = ContentAlignment.MiddleLeft
-        btnUsers.Location = New Point(12, 149)
+        btnUsers.Location = New Point(12, 442)
         btnUsers.Name = "btnUsers"
         btnUsers.Size = New Size(176, 46)
         btnUsers.TabIndex = 0
         btnUsers.Text = "Users"
         btnUsers.UseVisualStyleBackColor = True
+        ' 
+        ' btnStudents
+        ' 
+        btnStudents.FlatStyle = FlatStyle.Flat
+        btnStudents.Font = New Font("Century Gothic", 12F)
+        btnStudents.ForeColor = SystemColors.ButtonFace
+        btnStudents.Location = New Point(12, 142)
+        btnStudents.Name = "btnStudents"
+        btnStudents.Size = New Size(176, 46)
+        btnStudents.TabIndex = 6
+        btnStudents.Text = "Students"
+        btnStudents.UseVisualStyleBackColor = True
+        ' 
+        ' btnSubjects
+        ' 
+        btnSubjects.FlatStyle = FlatStyle.Flat
+        btnSubjects.Font = New Font("Century Gothic", 12F)
+        btnSubjects.ForeColor = SystemColors.ButtonFace
+        btnSubjects.Location = New Point(12, 322)
+        btnSubjects.Name = "btnSubjects"
+        btnSubjects.Size = New Size(176, 46)
+        btnSubjects.TabIndex = 7
+        btnSubjects.Text = "Subjects"
+        btnSubjects.UseVisualStyleBackColor = True
         ' 
         ' pnlMain
         ' 
@@ -189,7 +177,7 @@ Partial Class FrmMain
         StatusStrip1.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2, ToolStripStatusLabel3, ToolStripStatusLabel4})
         StatusStrip1.Location = New Point(200, 689)
         StatusStrip1.Name = "StatusStrip1"
-        StatusStrip1.Size = New Size(904, 22)
+        StatusStrip1.Size = New Size(967, 22)
         StatusStrip1.TabIndex = 2
         StatusStrip1.Text = "StatusStrip1"
         ' 
@@ -209,8 +197,8 @@ Partial Class FrmMain
         ' 
         ToolStripStatusLabel3.Margin = New Padding(700, 3, 0, 2)
         ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        ToolStripStatusLabel3.Size = New Size(31, 17)
-        ToolStripStatusLabel3.Text = "Date"
+        ToolStripStatusLabel3.Size = New Size(94, 17)
+        ToolStripStatusLabel3.Text = "                     Date"
         ' 
         ' ToolStripStatusLabel4
         ' 
@@ -263,6 +251,20 @@ Partial Class FrmMain
         Panel3.Size = New Size(62, 49)
         Panel3.TabIndex = 0
         ' 
+        ' btnLogout
+        ' 
+        btnLogout.FlatAppearance.BorderColor = Color.White
+        btnLogout.FlatStyle = FlatStyle.Flat
+        btnLogout.Font = New Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnLogout.ForeColor = SystemColors.ButtonFace
+        btnLogout.ImageAlign = ContentAlignment.MiddleLeft
+        btnLogout.Location = New Point(12, 603)
+        btnLogout.Name = "btnLogout"
+        btnLogout.Size = New Size(176, 46)
+        btnLogout.TabIndex = 9
+        btnLogout.Text = "Logout"
+        btnLogout.UseVisualStyleBackColor = True
+        ' 
         ' FrmMain
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -297,7 +299,6 @@ Partial Class FrmMain
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
     Public WithEvents btnCourses As Button
-    Public WithEvents Button1 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
@@ -306,5 +307,6 @@ Partial Class FrmMain
     Public WithEvents btnStudents As Button
     Public WithEvents btnSubjects As Button
     Public WithEvents btnEnroll As Button
+    Friend WithEvents btnLogout As Button
 
 End Class
